@@ -1,0 +1,27 @@
+@mixin font-face($style-name, $file, $family, $category:"") {
+  $filepath: "../fonts/" + $family + "/" + $file;
+  @font-face {
+    font-family: "#{$style-name}";
+    src: url($filepath + ".eot");
+    src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $style-name + "") format('svg');
+  }
+  %#{$style-name} {
+    font: {
+      @if $category != "" {
+        family: "#{$style-name}", #{$category};
+      }
+      @else {
+        family: "#{$style-name}";
+        weight: normal;
+      }
+    }
+  }
+}
+
+
+@mixin btn-social($color-bg, $hover-color: #fff) {
+  background-color: $color-bg;
+  &:hover, &:active, &:focus {
+    background-color: $hover-color;
+  }
+}

@@ -1,0 +1,45 @@
+// Media queries
+@media screen and (max-width: 480px) {
+  body.login-screen{
+    font-size: 12px;
+    background-color: #546e7a;
+    >.row{
+      margin: 0;
+      >.col{
+        padding: 0;
+      }
+      .card{
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        h1{
+          font-size: 3rem;
+        }
+        .btn-social-icon > .fa{
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  body.login-screen{
+    .input-field{
+      input[type=password],
+      input[type=email] {
+        font-size: 1.5rem !important;
+      }
+      label {
+        font-size: 1.5rem !important;
+        top: 0.85rem !important;
+      }
+      label.active {
+        font-size: .85rem !important;
+      }
+    }
+    .btn-social-icon + .btn-social-icon {
+      margin-left: .7rem;
+    }
+  }
+}

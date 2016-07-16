@@ -1,0 +1,21 @@
+{
+  "name": "poteso",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "PowerCodX"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#^0.97.6",
+    "jquery": "^3.1.0"
+  }
+}
