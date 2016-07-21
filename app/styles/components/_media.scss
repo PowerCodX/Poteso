@@ -2,7 +2,7 @@
 @media screen and (max-width: 480px) {
   body.login-screen{
     font-size: 12px;
-    background-color: #546e7a;
+    background-color: $main-color;
     >.row{
       margin: 0;
       >.col{
