@@ -1,0 +1,29 @@
+.editor-toolbar{
+  border-radius: 0;
+  a{
+    color: #fff !important;
+    &.active, &:hover{
+      background-color: $accent-color !important;
+      border-color: $bg-color;
+      outline: none;
+    }
+  }
+  &.fullscreen{
+    background-color: $main-color;
+    &::before, &::after{
+      background: none;
+      width: 0;
+    }
+  }
+  &.disabled-for-preview{
+    a:not(.no-disable){
+      background-color: $bg-color;
+      border-color: $accent-color;
+    }
+  }
+}
+
+.CodeMirror, .CodeMirror-scroll {
+  min-height: 150px;
+  border-radius: 0;
+}

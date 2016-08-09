@@ -1,4 +1,14 @@
 // Media queries
+@media screen and (min-width: 993px){
+  body.admin-sceen {
+    nav {
+      .button-collapse{
+        display: block;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 480px) {
   body.login-screen{
     font-size: 12px;

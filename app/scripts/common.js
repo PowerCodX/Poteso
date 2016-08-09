@@ -2,18 +2,19 @@
  * Created by pogor on 21-Jul-16.
  */
 $(document).ready(function () {
+  const $preloader = $('.preloader-wrapper');
+  const questionDiv = $('.question');
 
-  setTimeout(function () {
-    $('#preloader').fadeOut();
-    $('.preloader-wrapper').removeClass('active');
-  }, 1000);
+  // Preloader
+  $('#preloader').fadeOut();
+  $preloader.removeClass('active');
 
   // Initialize collapse button
   $(".button-collapse").sideNav();
   // Initialize collapsible (uncomment the line below if you use the dropdown variation)
   //$('.collapsible').collapsible();
 
-  $('button').click(function () {
+  $('.submit-button').click(function () {
 
     var body = $("html, body");
     body.stop().animate({scrollTop: 0}, '300', 'swing').queue(function () {
@@ -32,7 +33,6 @@ $(document).ready(function () {
         "transitionend MSTransitionEnd webkitTransitionEnd oTransitionEnd",
         function () {
           $(this).delay(1000).queue(function () {  // Wait for 1 second.
-            var questionDiv = $('.question');
             // Insert new empty div with class 'question' after last div element with same class
             $('<div class="question"></div>').insertAfter(questionDiv.last());
             // Delete first div element (slide that contain answered question)
@@ -43,5 +43,47 @@ $(document).ready(function () {
         }
       );
     }
-  })
+  });
+
+  function toggleFullscreen(elem) {
+    elem = elem || document.documentElement;
+    if (!document.fullscreenElement && !document.mozFullScreenElement &&
+      !document.webkitFullscreenElement && !document.msFullscreenElement) {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
+    }
+  }
+
+  $('.toggle-fullscreen').click(function () {
+    toggleFullscreen();
+  });
+
+  $('.md-editor').each(function () {
+    var simplemde = new SimpleMDE({
+      element: this,
+      placeholder: "Introduceți informația aici...",
+      status: false
+    });
+  });
+
+  $('#add-question').click(function () {
+    $(this).velocity({translateY: '-200%'}, {duration: 225, queue: false, easing: 'easeInCubic'});
+  });
 });
